@@ -1,0 +1,55 @@
+function escolherCaminho(caminho) {
+  const historia = document.getElementById('historia');
+  const opcoes = document.getElementById('opcoes');
+
+  if (caminho === 'esquerda') {
+    historia.innerHTML = "Você segue pela trilha da esquerda, onde o silêncio e a solidão parecem te envolver ainda mais. Você pensa sobre a perda recente que marcou sua vida. A dor ainda está muito presente. Você encontra uma árvore velha, e lá está uma pessoa com quem você tem uma história, alguém que não vê há muito tempo. O que você faz?";
+    opcoes.innerHTML = `
+      <button onclick="escolherCaminhoEsquerda('falar')">Falar com a pessoa e tentar entender o que aconteceu</button>
+      <button onclick="escolherCaminhoEsquerda('evitar')">Evitar a pessoa e seguir em frente com a dor</button>
+    `;
+  } else if (caminho === 'direita') {
+    historia.innerHTML = "Você segue pela trilha da direita, onde o caminho parece mais claro, mas o vazio emocional ainda te consome. Você encontra uma velha foto no chão, que traz lembranças de um tempo mais feliz. Você se sente perdido. O que você faz agora?";
+    opcoes.innerHTML = `
+      <button onclick="escolherCaminhoDireita('reviver')">Reviver as lembranças e refletir sobre o que perdeu</button>
+      <button onclick="escolherCaminhoDireita('desistir')">Desistir de tudo e seguir sem olhar para trás</button>
+    `;
+  }
+}
+
+function escolherCaminhoEsquerda(acao) {
+  const historia = document.getElementById('historia');
+  const opcoes = document.getElementById('opcoes');
+
+  if (acao === 'falar') {
+    historia.innerHTML = "Você decide se aproximar da pessoa. A conversa começa tensa, mas com o tempo, as palavras se tornam mais suaves. Vocês tentam encontrar algum entendimento no meio de tanto sofrimento, mas a realidade do que aconteceu ainda pesa.";
+    opcoes.innerHTML = <button onclick="reiniciar()">Recomeçar a história</button>;
+  } else if (acao === 'evitar') {
+    historia.innerHTML = "Você decide não falar com a pessoa e segue seu caminho. A dor permanece, mas você sabe que o tempo talvez seja o único remédio. Ao sair, você sente que talvez tenha feito a escolha certa.";
+    opcoes.innerHTML = <button onclick="reiniciar()">Recomeçar a história</button>;
+  }
+}
+
+function escolherCaminhoDireita(acao) {
+  const historia = document.getElementById('historia');
+  const opcoes = document.getElementById('opcoes');
+
+  if (acao === 'reviver') {
+    historia.innerHTML = "Você pega a foto e revê os bons momentos. As lembranças trazem um alívio momentâneo, mas logo você se dá conta de que, embora as memórias sejam lindas, o tempo não pode ser revertido. Você sente uma saudade profunda, mas agora precisa aceitar a perda.";
+    opcoes.innerHTML = <button onclick="reiniciar()">Recomeçar a história</button>;
+  } else if (acao === 'desistir') {
+    historia.innerHTML = "Você decide seguir em frente, mas algo dentro de você quebra. A dor parece insuportável, mas você tenta esconder, pois acha que precisa ser forte. No entanto, a luta interna continua enquanto o sol começa a se pôr no horizonte.";
+    opcoes.innerHTML = <button onclick="reiniciar()">Recomeçar a história</button>;
+  }
+}
+
+function reiniciar() {
+  const historia = document.getElementById('historia');
+  const opcoes = document.getElementById('opcoes');
+  
+  historia.innerHTML = "Você está em um parque, caminhando lentamente. Algo pesado no seu peito faz você parar, e a estrada à frente parece dividida entre dois destinos.";
+  opcoes.innerHTML = `
+    <button onclick="escolherCaminho('esquerda')">Ir pela trilha da esquerda</button>
+    <button onclick="escolherCaminho('direita')">Ir pela trilha da direita</button>
+  `;
+}
